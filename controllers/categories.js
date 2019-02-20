@@ -1,11 +1,15 @@
 var service = require('../services/categories');
 
+var srv = new service();
+
 function Controller() {
-    this.getAll = function (req, res) {
-        service.getAll(req, res);
+
+    this.getAll = async (req, res) => {
+        var result = await srv.getAll();
+        res.status(200).send(JSON.stringify(result));
     }
 
-    this.getById = function (req, res) {
+    this.getById = (req, res) => {
         var id = req.body.id;
 
         if (!id) {
@@ -16,15 +20,15 @@ function Controller() {
         service.getById(id);
     }
 
-    this.post = function (req, res) {
+    this.post = (req, res) => {
         service.post(req.body)
     }
 
-    this.put = function (req, res) {
+    this.put = (req, res) => {
         service.put(req.body);
     }
 
-    this.deleteById = function (req, res) {
+    this.deleteById = (req, res) => {
         var id = req.body.id;
 
         if (!id) {
