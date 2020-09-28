@@ -1,8 +1,8 @@
-var express = require('express');
-var controller = require('../controllers/categories');
+const express = require('express');
+const controller = require('../controllers/categories');
 
-var ctrl = new controller();
-var router = express.Router();
+const ctrl = new controller();
+const router = express.Router();
 
 router.get('/', ctrl.getAll);
 router.get('/:id', ctrl.getById);

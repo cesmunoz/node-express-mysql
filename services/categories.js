@@ -1,10 +1,10 @@
-var db = require('../util/db');
+const db = require('../util/db');
 
 function Service() {
 
     this.getAll = async (req, res) => {
-        var query = "SELECT * FROM categorias";
-        var result = await db.query(query);
+        const query = "SELECT * FROM categorias";
+        const result = await db.query(query);
         return result;
     }
     

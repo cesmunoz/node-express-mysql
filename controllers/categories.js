@@ -1,6 +1,6 @@
-var service = require('../services/categories');
+const service = require('../services/categories');
 
-var srv = new service();
+const srv = new service();
 
 function Controller() {
 
@@ -10,10 +10,10 @@ function Controller() {
     }
 
     this.getById = (req, res) => {
-        var id = req.body.id;
+        const { id } = req.body;
 
         if (!id) {
-            res.status(404).send('Categoria no encontrada');
+            res.status(404).send('Category not found');
             return;
         }
 
@@ -29,10 +29,10 @@ function Controller() {
     }
 
     this.deleteById = (req, res) => {
-        var id = req.body.id;
+        const { id } = req.body;
 
         if (!id) {
-            res.status(404).send('Categoria no encontrada');
+            res.status(404).send('Category not found');
             return;
         }
 
